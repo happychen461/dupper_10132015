@@ -1,0 +1,32 @@
+<template name="layout">
+        <h1>Dupper</h1>
+        <ul>
+            <li>{{> loginButtons}}</li>
+        </ul>
+
+        <div class="container">
+            {{#if currentUser}}
+                <form class="config-form">
+                    <label>Git Project
+                        <select class="gitPrjs" name="gitPrjs">
+                            <option>prj1</option>
+                            <option>prj2</option>
+                            <option>prj3</option>
+                            <option>prj4</option>
+                        </select>
+                    </label>
+                    <label>Docker Configuration
+                        <textarea name="dockerConfig" rows="4" cols="50"></textarea>
+                    </label>
+                    <label>Build Configuration
+                        <textarea name ="buildConfig" rows="4" cols="50"></textarea>
+                    </label>
+                    <input type="submit" value="Submit">
+                </form>
+            {{/if}}
+        </div>
+</template>
+
+<template name="gitPrj">
+    <option>{{gitPrjName}}</option>
+</template>
