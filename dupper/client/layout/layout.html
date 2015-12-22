@@ -1,32 +1,28 @@
 <template name="layout">
-        <h1>Dupper</h1>
-        <ul>
-            <li>{{> loginButtons}}</li>
-        </ul>
+    <h1>Dupper</h1>
+    <ul>
+        <li>{{> loginButtons}}</li>
+    </ul>
 
-        <div class="container">
-            {{#if currentUser}}
-                <form class="config-form">
-                    <label>Git Project
-                        <select class="gitPrjs" name="gitPrjs">
-                            <option>prj1</option>
-                            <option>prj2</option>
-                            <option>prj3</option>
-                            <option>prj4</option>
-                        </select>
-                    </label>
-                    <label>Docker Configuration
-                        <textarea name="dockerConfig" rows="4" cols="50"></textarea>
-                    </label>
-                    <label>Build Configuration
-                        <textarea name ="buildConfig" rows="4" cols="50"></textarea>
-                    </label>
-                    <input type="submit" value="Submit">
-                </form>
-            {{/if}}
-        </div>
+    <div class="container">
+        {{#if currentUser}}
+        <form class="config-form">
+            <label>Git Project:</label>
+            <select class="gitPrjs" name="gitPrjs">
+                {{#each gitPrjNames}} {{> userGitPrjName}} {{/each}}
+            </select>
+            <label>Docker Configuration:</label>
+            <textarea name="dockerConfig" rows="4" cols="50">{{dockerCfg}}</textarea>
+
+            <label>Build Configuration:</label>
+            <textarea name="buildConfig" rows="4" cols="50">{{buildCfg}}</textarea>
+
+            <input type="submit" value="Update">
+        </form>
+        {{/if}}
+    </div>
 </template>
 
-<template name="gitPrj">
-    <option>{{gitPrjName}}</option>
+<template name="userGitPrjName">
+    <option>{{ name}}</option>
 </template>
