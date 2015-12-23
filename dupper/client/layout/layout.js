@@ -73,7 +73,7 @@ Template.layout.events({
                 console.log(result);
             }
         });
-        Alert("updated!");
+        alert("updated!");
         return false;
     },
 
